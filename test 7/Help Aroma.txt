@@ -1,0 +1,33 @@
+import java.util.*;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        String m = sc.nextLine();
+        int k = sc.nextInt();
+        while (k-- > 0) {
+            int w = sc.nextInt() - 1;
+            int x = sc.nextInt() - 1;
+            int y = sc.nextInt() - 1;
+            int z = sc.nextInt() - 1;
+            String p = m.substring(w, x + 1);
+            String q = m.substring(y, z + 1);
+            int[] countP = new int[26];
+            int[] countQ = new int[26];
+            for (int i = 0; i < p.length(); i++) {
+                countP[p.charAt(i) - 'a']++;
+            }
+            for (int i = 0; i < q.length(); i++) {
+                countQ[q.charAt(i) - 'a']++;
+            }
+            boolean flag = true;
+            for (int i = 0; i < 26; i++) {
+                if (countP[i] != countQ[i]) {
+                    flag = false;
+                    break;
+                }
+            }
+            System.out.println(flag ? "true" : "false");
+        }
+    }
+}
