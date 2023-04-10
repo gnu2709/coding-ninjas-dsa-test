@@ -1,0 +1,28 @@
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.Scanner;
+public class Solution { 
+	 public static int[] getArray(Scanner s) {   
+	int n = s.nextInt();   
+	 int[] arr = new int[n];    
+	 for(int i = 0; i < n; i++) {     
+		  arr[i] = s.nextInt();    }    
+		  return arr;  }  
+		  public static void main(String[] args) {   
+			   Scanner s = new Scanner(System.in);   
+			    int[] arr = getArray(s);       
+				 Integer[] objectArray = new Integer[arr.length];   
+				  for(int ctr = 0; ctr < arr.length; ctr++) {     
+					   objectArray[ctr] = Integer.valueOf(arr[ctr]); 
+					   // returns Integer value    
+					   }  
+					     //Sort in decending order   
+					    Arrays.sort(objectArray, Collections.reverseOrder());   
+						 int sol = 0;    for (int i = 0; 
+						 i < objectArray.length; i++) {     
+							  if (i % 3 == 2) {       
+								   continue;      }      
+								   sol += objectArray[i];    }   
+								    System.out.println(sol);  }
+									}
+									
