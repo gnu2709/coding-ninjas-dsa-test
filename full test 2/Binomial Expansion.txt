@@ -1,0 +1,30 @@
+import java.io.*; 
+import java.util.*;
+public class Solution{ 		
+	// function to print the series 	
+static void series(int A, int X, int n) 	{ 				
+		// Calculating and printing first 		// term 		
+int term = (int)Math.pow(A, n); 		
+System.out.print(term + " "); 		
+		// Computing and printing 		// remaining terms 		
+for (int i = 1; i <= n; i++) { 			
+// Find current term using 	
+// previous terms We increment 
+// power of X by 1, decrement 	
+// power of A by 1 and compu/ nCi using previous / multiplying previous term 			
+// with (n - i + 1)/i 		
+term = term * X * (n - i + 1) 								
+/(i * A); 			
+System.out.print(term + " "); 		
+} 	
+} 	
+// main function started 	
+public static void main(String[] args) 	{ 	   
+Scanner s=new Scanner(System.in);		
+int A =s.nextInt();		
+int X=s.nextInt();	
+int n=s.nextInt();	
+series(A, X, n); 
+}
+								
+  }
