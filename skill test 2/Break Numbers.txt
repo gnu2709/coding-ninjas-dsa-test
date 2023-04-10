@@ -1,0 +1,24 @@
+import java.util.*;
+
+public class solution {
+	public static void printCombination(int num){
+		//Write your code here
+	       List<Integer> combination = new ArrayList<>();
+    generateCombination(0, num, combination, 1);
+}
+
+private static void generateCombination(int currentSum, int n, List<Integer> combination, int lastAdded) {
+    if (currentSum == n) {
+        // Print the current combination
+        for (int num : combination) {
+            System.out.print(num + " ");
+        }
+        System.out.println();
+        return;
+    }
+    for (int i = lastAdded; i <= n - currentSum; i++) {
+        combination.add(i);
+        generateCombination(currentSum + i, n, combination, i);
+        combination.remove(combination.size() - 1);
+    }
+}}
