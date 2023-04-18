@@ -1,0 +1,44 @@
+/*
+class Node{
+    int data;
+    Node right,down;
+    Node(int data){
+        this.data=data;
+        right=null;
+        down=null;
+    }
+}
+*/
+//import java.util.Scanner;
+public class Solution{
+    static Node construct(int arr[][],int n)
+ {
+Node head = null, curr = null, prev = null, top = null;
+//traversing the matrix row-wise and creating nodes of linked list
+for(int i=0; i<n; i++)
+{
+for(int j=0; j<n; j++)
+{
+curr = new Node(arr[i][j]);
+if(i==0 && j==0)
+{
+head = curr;
+prev = curr;
+}
+else if(j==0)
+{
+top = head;
+while(top.down!=null)
+top = top.down;
+top.down = curr;
+prev = curr;
+}
+else
+{
+prev.right = curr;
+prev = curr;
+}
+}
+}
+return head;
+}}
