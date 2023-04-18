@@ -1,0 +1,71 @@
+/***********
+ 
+Following is the Linked list node structure already written 
+ 
+class ListNode<t> {
+	public t data;
+	 public ListNode<t> next;
+	 public ListNode(t data)
+	 {
+		 this.data=data;
+	 }
+}
+
+************/
+import java.util.*;
+
+public class solution {
+
+	public static void make2List(ListNode<Integer> head) {
+		// Write your code here
+
+	  if(head == null) {
+        return;
+    }
+    ListNode<Integer> curr = head;
+    ListNode<Integer> a = null, b = null;
+    boolean addToA = true;
+    while(curr != null) {
+        if(addToA) {
+            ListNode<Integer> newNode = new ListNode<Integer>(curr.data);
+            newNode.next = a;
+            a = newNode;
+        } else {
+            ListNode<Integer> newNode = new ListNode<Integer>(curr.data);
+            newNode.next = b;
+            b = newNode;
+        }
+        addToA = !addToA;
+        curr = curr.next;
+    }
+    printList(a);
+    System.out.println();
+    printList(b);
+}
+
+public static void printList(ListNode<Integer> head) {
+    ListNode<Integer> temp = head;
+    while(temp != null) {
+        System.out.print(temp.data + " ");
+        temp = temp.next;
+    }
+}
+
+public static void main(String[] args) {
+    Scanner sc = new Scanner(System.in);
+    int n = sc.nextInt();
+    ListNode<Integer> head = null, tail = null;
+    while(n != -1) {
+        ListNode<Integer> newNode = new ListNode<Integer>(n);
+        if(head == null) {
+            head = newNode;
+            tail = newNode;
+        } else {
+            tail.next = newNode;
+            tail = newNode;
+        }
+        n = sc.nextInt();
+    }
+    make2List(head);
+}
+}
